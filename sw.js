@@ -1,6 +1,6 @@
 // Offline shell: precache the app on install so it opens with no internet.
-const C = 'il-shell-v4';
-const SHELL = ['./', 'index.html', 'manifest.webmanifest'];
+const C = 'il-shell-v5';
+const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'apple-touch-icon.png', 'icon-192.png'];
 async function precache() {
   const c = await caches.open(C);
   await Promise.all(SHELL.map(u => fetch(u, { cache: 'reload' }).then(r => r.ok && c.put(u, r)).catch(() => {})));
